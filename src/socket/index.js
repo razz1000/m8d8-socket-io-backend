@@ -31,6 +31,7 @@ const connectionHandler = (socket) => {
   socket.on("sendmessage", async ({ message, room }) => {
     // we should broadcast that message to everybody but not to the sender of the message (otherwise he would see a duplicated message on the chat)
     // socket.broadcast.emit("message", message)
+    console.log("Message", message);
 
     // we would like to save the message in db
     await saveMessage(message, room);
